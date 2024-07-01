@@ -79,10 +79,11 @@ app.get('/', async (_request, response) => {
     }
 });
 (async () => {
+    var _a;
     // try to connect to postgres
-    // await postgres.tryConnect(true)
+    await postgres.tryConnect(true);
     // Ensure welcome table exists
-    // await postgres.client?.query('CREATE TABLE IF NOT EXISTS "welcome" ( "count" INTEGER )')
+    await ((_a = postgres.client) === null || _a === void 0 ? void 0 : _a.query('CREATE TABLE IF NOT EXISTS "welcome" ( "count" INTEGER )'));
     // Start web server on port 3000
     app.listen(3000, () => {
         console.log('Server is listening on port 3000');

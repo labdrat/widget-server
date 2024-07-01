@@ -91,11 +91,10 @@ app.get('/', async(_request, response) => {
 
 ;(async() => {
   // try to connect to postgres
-  // await postgres.tryConnect(true)
-
+  await postgres.tryConnect(true)
   
   // Ensure welcome table exists
-  // await postgres.client?.query('CREATE TABLE IF NOT EXISTS "welcome" ( "count" INTEGER )')
+  await postgres.client?.query('CREATE TABLE IF NOT EXISTS "welcome" ( "count" INTEGER )')
 
   // Start web server on port 3000
   app.listen(3000, () => {
